@@ -1,0 +1,39 @@
+$border-radius: 4px;
+
+@mixin with-border($radius: $border-radius, $border-color: black) {
+  border: 1px solid $border-color;
+  border-radius: $radius;
+}
+
+.my-graph-component {
+  @include with-border($border-radius, blue);
+
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: #1eb4d1;
+  border: 1px solid #198aa2;
+  display: inline-block;
+  user-select: none;
+  padding: 20px;
+
+  .comp-props {
+    color: white;
+
+    .increase-button {
+      @include with-border($border-radius, #3e3e3e);
+      background-color: white;
+      margin-left: 40px;
+      padding: 4px 6px;
+      cursor: pointer;
+      color: black;
+
+      &:hover {
+        filter: drop-shadow(2px 4px 6px black);
+      }
+    }
+  }
+
+  .comp-state {
+    color: yellow;
+    margin-top: 20px;
+  }
+}
